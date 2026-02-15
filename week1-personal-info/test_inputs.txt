@@ -1,0 +1,16 @@
+--- TEST CASE 1: SUCCESSFUL PATH (Valid Inputs) ---
+Name: John Doe
+Age: 25
+City: New York
+Result: Profile generated successfully with title-case formatting.
+
+--- TEST CASE 2: INPUT VALIDATION (Empty Strings) ---
+Name: [Enter Key Pressed]
+Result: Caught by validation. "Error: Please enter a valid hobby! 
+ If you don't have a favorite hobby please enter 'none'." displayed.
+Name: Jane Smith
+Result: Accepted.
+
+--- TEST CASE 3: STRING FORMATTING (Case Sensitivity) ---
+City: lOS aNGELES
+Result: Corrected to "Los Angeles" using .title() method.

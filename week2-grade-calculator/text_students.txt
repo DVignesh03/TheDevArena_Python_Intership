@@ -1,0 +1,33 @@
+--- TEST CASE 1: TOP TIER PERFORMANCE ---
+Input:
+  - Number of Students: 1
+  - Name: Aarav Sharma
+  - Marks: Math(95), Science(92), English(98)
+Result: Average 95.0, Grade A, Comment: "Excellent"
+Verification: Confirms calculation and 'A' grade assignment.
+
+--- TEST CASE 2: MID-RANGE PERFORMANCE ---
+Input:
+  - Number of Students: 1
+  - Name: David Miller
+  - Marks: Math(65), Science(60), English(62)
+Result: Average 62.3, Grade D, Comment: "Needs improvement"
+Verification: Confirms handling of decimal averages (62.3) and 'D' grade.
+
+--- TEST CASE 3: BOUNDARY TESTING (PASS/FAIL) ---
+Input:
+  - Number of Students: 2
+  - Names: Elena Petrova, Chen Wei
+  - Marks Elena: 45, 50, 38 (Avg: 44.3)
+  - Marks Chen: 72, 70, 68 (Avg: 70.0)
+Result: Elena(F), Chen(C)
+Verification: Confirms that exactly 70.0 receives a 'C' and below 60 receives an 'F'.
+
+--- TEST CASE 4: CLASS STATISTICS VERIFICATION ---
+Input: Using all 7 students above.
+Expected Statistics:
+  - Total Students: 7
+  - Highest Avg: 100.0 (Max Boundary)
+  - Lowest Avg: 0.0 (Min Boundary)
+  - Class Average Calculation: (95+81.7+70+62.3+44.3+100+0) / 7 = 64.8
+Verification: Confirms that the statistics loop correctly identifies min/max indices.

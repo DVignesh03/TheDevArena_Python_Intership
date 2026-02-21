@@ -1,0 +1,39 @@
+==================================================
+      STUDENT GRADE CALCULATOR
+==================================================
+
+Enter number of students: 2
+
+=== STUDENT 1 ===
+Student name: vignesh
+Enter the marks obtained (0-100)
+Math: 75
+Science: 99
+English: 99
+
+=== STUDENT 2 ===
+Student name: uday
+Enter the marks obtained (0-100)
+Math: 70
+Science: 90
+English: 90
+
+==================================================
+            RESULTS SUMMARY
+==================================================
+Name                 |   Avg | Grade | Comment
+------------------------------------------------------------
+vignesh              |  91.0 |   A   | Excellent
+uday                 |  83.3 |   B   | Very good
+
+==================================================
+          CLASS STATISTICS
+==================================================
+Total Students: 2
+Class Average: 87.2
+Highest Average: 91.0 (vignesh)
+Lowest Average: 83.3 (uday)
+
+==================================================
+Thank you for using the Grade Calculator!
+==================================================

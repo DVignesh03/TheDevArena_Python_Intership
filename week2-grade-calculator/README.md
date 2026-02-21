@@ -29,6 +29,3 @@ A comprehensive grade calculator that processes multiple students' marks, calcul
 ## How to Run
 1. Navigate to project folder
 2. Run the following command in terminal/command prompt: `python grade_calculator.py`
-
-## Visual Proof
-![Execution proof](week2-grade-calculator\visual proof.png)

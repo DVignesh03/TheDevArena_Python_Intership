@@ -1,0 +1,56 @@
+--- TEST CASE 1: CREATE (Data Entry & Regex Validation) ---
+Input: 
+  - Name: "D. Vignesh"
+  - Phone: "987-654-3210" (Testing re.sub cleaning)
+  - Email: "vignesh@example.com"
+  - Group: "Work"
+Result: 
+  - Phone cleaned to "9876543210".
+  - Contact added to dictionary and saved to contacts.json.
+Verification: Checked contacts.json; entry exists with 'created_at' timestamp.
+
+--- TEST CASE 2: READ (Partial Name & Phone Search) ---
+Input: 
+  - Search Term: "Vig"
+Result: 
+  - Found 1 result: "D. Vignesh"
+Input: 
+  - Search Term: "3210"
+Result: 
+  - Found 1 result: "D. Vignesh" (Matches suffix of phone number)
+Verification: Confirms case-insensitive partial matching logic works.
+
+--- TEST CASE 3: UPDATE (Field Selection) ---
+Input: 
+  - Target Phone: "9876543210"
+  - New Email: [Enter Key Pressed] (Skip)
+  - New Group: "Friends"
+Result: 
+  - Email remained "vignesh@example.com".
+  - Group updated to "Friends".
+  - 'updated_at' timestamp refreshed.
+Verification: Confirms that pressing Enter skips fields without clearing data.
+
+--- TEST CASE 4: DELETE (Integrity Check) ---
+Input: 
+  - Target Phone: "9876543210"
+  - Confirm: "n"
+Result: 
+  - Deletion cancelled. Contact remains in list.
+Input: 
+  - Confirm: "y"
+Result: 
+  - Contact removed. Total count updated.
+Verification: Verified contacts.json reflects the removal.
+
+--- TEST CASE 5: FILE PERSISTENCE & EXPORT ---
+Action:
+  - Exit program and Restart.
+  - Choose "Display All".
+Result: 
+  - Previous contacts reloaded from JSON successfully.
+Action:
+  - Select "Export to CSV".
+Result: 
+  - 'contacts_export.csv' created with correct headers and data.
+Verification: CSV opens correctly in Excel/Spreadsheet software.

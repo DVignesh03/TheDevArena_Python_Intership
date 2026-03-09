@@ -15,3 +15,7 @@ def get_valid_float(prompt):
 def format_currency(amount):
     """Simple helper to keep currency display consistent."""
     return f"${amount:,.2f}"
+
+def clear_screen():
+    """Clears the terminal screen based on the OS."""
+    os.system('cls' if os.name == 'nt' else 'clear')

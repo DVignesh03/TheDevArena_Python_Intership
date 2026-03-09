@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 class Reporter:
     @staticmethod
     def generate_budget_report(manager):
@@ -58,3 +58,31 @@ class Reporter:
             print(f"{month:<15} | ${current_amt:>9.2f} | {change_str}")
             previous_amt = current_amt
 
+    @staticmethod
+    def generate_category_summary(expenses):
+        """Generates a percentage-based breakdown of spending by category."""
+        if not expenses:
+            print("\n[!] No expenses found to summarize.")
+            return
+
+        # 1. Aggregate totals by category
+        category_totals = {}
+        for e in expenses:
+            category_totals[e.category] = category_totals.get(e.category, 0) + e.amount
+        
+        total_spent = sum(category_totals.values())
+
+        print("\n" + "="*50)
+        print(f"{'Category':<20} | {'Amount':>10} | {'Percentage'}")
+        print("-" * 50)
+
+        # 2. Display with simple text-bar visualization
+        for category, amount in category_totals.items():
+            percentage = (amount / total_spent) * 100
+            # Visual Bar (1 '#' for every 5%)
+            bar = "#" * int(percentage / 5)
+            print(f"{category:<20} | ${amount:>9.2f} | {percentage:>5.1f}% {bar}")
+        
+        print("-" * 50)
+        print(f"{'TOTAL':<20} | ${total_spent:>9.2f}")
+        print("="*50)

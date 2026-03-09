@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import csv
 from datetime import datetime
 
 class FileHandler:
@@ -47,3 +48,25 @@ class FileHandler:
         shutil.copy2(self.filename, backup_path)
         print(f"[SUCCESS] Backup created at: {backup_path}")
         return True
+    
+    def export_to_csv(self, expenses, export_filename="data/expenses_report.csv"):
+        """Exports the current expense list to a CSV file."""
+        if not expenses:
+            print("[!] No data to export.")
+            return False
+            
+        try:
+            with open(export_filename, mode='w', newline='') as f:
+                writer = csv.writer(f)
+                # Write the Header Row
+                writer.writerow(["Date", "Amount", "Category", "Description"])
+                
+                # Write the Data Rows
+                for e in expenses:
+                    writer.writerow([e.date, e.amount, e.category, e.description])
+            
+            print(f"[SUCCESS] Data exported to {export_filename}")
+            return True
+        except IOError as e:
+            print(f"[ERROR] CSV Export failed: {e}")
+            return False
